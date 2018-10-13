@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  max-height: 600px;
+}
+
+h1{
+  font-family: monospace;
+  font-weight: lighter;
+  background-color: white;
+  color: darkgreen;
+  border: 2px white;
+  grid-area: headerleft;
+}
+
+
+h2 {
+  font-family: monospace;
+  font-weight: lighter;
+  /* font-size: 28px; */
+  text-decoration: underline;
+  background-color: white;
+  color: darkgreen;
+  /* width: 240px; */
+  grid-area: headermiddle;
+}
+
+body {
+  font-family: monospace;
+  margin: 0;
+  background-image: url('avobackground.jpg');
+  color: darkgreen;
+  display: grid;
+  grid-template-columns: 25% 20% auto;
+  grid-template-rows: 60px auto;
+  grid-template-areas: "headerleft headermiddle headerright"
+                        "left main right";
+                      }
+
+#mySearch {
+  background-image: url('/css/searchicon.png');
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  grid-area: headerright;
+}
+
+
+#all-ingredients {
+  grid-area: right;
+
+
+}
+
+table{
+    max-height: 600px;
+}
+
+#myTable {
+  background-color: darkgreen;
+  color: darkgreen;
+  max-height: 600rem;
+  overflow: scroll;
+  width: 100%;
+  font-family: Copperplate Gothic Light, sans-serif;
+  font-size: 18px;
+  padding: 2px;
+  grid-area: right;
+
+
+
+}
+
+#nutritional-profile {
+  max-height: 400px;
+  overflow-y: scroll;
+  grid-area: main;
+  font-family: monospace;
+  color: darkgreen;
+  border: 2px white;
+  width: 240px;
+}
+
+
+#nutrition-table{
+  grid-area: left;
+  background: white;
+}
+
+th{
+  background-color: white;
+  color: darkgreen;
+  border: 2px darkgreen;
+}
+
+td {
+  background: white;
+}
+
+#myTable th, #myTable td {
+  background-color: white;
+  width: 400px
+  text-align: left;
+  color: darkgreen;
+  font-family: monospace;
+  grid-area: right;
+}
+
+#vitamin{
+  background: transparent;
+  width: 400px
+  grid-area: right;
+}
+
+#myTable tr {
+  overflow: scroll;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+#all-ingredients {
+  max-height: 500px;
+  overflow-y: scroll;
+}
