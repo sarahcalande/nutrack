@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const ingredientsURL = 'http://localhost:3000/ingredients';
+  const nutrientsURL = 'http://localhost:3000/nutrients';
   let consumedItems = document.querySelector('#consumed-items');
   let myTable = document.querySelector('#myTable');
   let mySearch = document.querySelector('#mySearch');
+
+
 
   init();
 
@@ -12,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       yourName = prompt("What's your name?");
     }
 
-    let title = `${yourName}'s Daily Food Blog`;
+    let title = `${yourName}'s Daily Nutrition`;
     let date = new Date();
     let month = date.getMonth() + 1;
     let day = date.getDay();
@@ -20,24 +23,57 @@ document.addEventListener('DOMContentLoaded', () => {
     date = `${month}/${day}/${year}`
     document.querySelector('#your-name').innerText = title;
     document.querySelector('#todays-items-heading').innerText = `${date}`
+    fetchNutrients();
     fetchIngredients();
   }
 
+
+
+
+
+
+
+
+
+  function fetchNutrients() {
+    return fetch(nutrientsURL)
+      .then(r => r.json())
+      .then(r => r.forEach(nutrient => renderNutrients(nutrient)))
+      .then(descriptionEvent)
+  }
+
+
+  //NUTRIENTS TABLEEEEE
+  function renderNutrients(nutrient){
+  let nutritiontable = document.querySelector('#nutrition-table')
+  nutritiontable.innerHTML +=
+  `<tr id=${nutrient.id}>
+      <td id="vitamin" data-description=${nutrient.description}>${nutrient.name}</td>
+      <td>${nutrient.value} ${nutrient.unit}</td>
+      <td>0</td>
+      <td id="percentage"><span style='background-color:#F88;display:block;width:0%'>0</span></td>
+          <td data-id="${nutrient.id}" id="description">${nutrient.description} </td>
+    </tr>`
+  }
+
+//FETCH AND RENDER INGREDIENTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   function fetchIngredients() {
     return fetch(ingredientsURL)
       .then(r => r.json())
-      .then(renderIngredients)
+      .then(r => r.forEach(ingredient => renderIngredients(ingredient)))
   }
 
-  function renderIngredients(ingredientsArray) {
-    ingredientsArray.forEach(ingredient => {
+  function renderIngredients(ingredient) {
       let tr = document.createElement('tr');
       tr.dataset.id = ingredient.id;
       tr.innerHTML = `<td>${ingredient.name}</td><td>${ingredient.measure}</td><td><input type="number" min=1 max=100></td><td><button>Add</button></td>`;
       myTable.append(tr);
-    });
-  }
+    };
 
+
+
+
+//SEARCH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   mySearch.addEventListener('keyup', () => {
     let filter, table, tr, td, i;
     // input = document.getElementById("mySearch");
@@ -56,6 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
+
+
+
+
+//ADDING TO NUTRITIONAL PROFILE
   document.querySelector('#myTable').addEventListener('click', () => {
     if (event.target.nodeName === 'BUTTON') {
       let li = document.createElement('li')
@@ -69,12 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
         consumedItems.append(li)
         consumedItems.style.backgroundColor = "white"
         event.target.parentElement.parentElement.children[2].children[0].value = '';
-
         addNutritionalProfile(id, quantity)
       }
     }
   });
-
   function addNutritionalProfile(id, quantity) {
     fetch(`${ingredientsURL}/${id}`)
       .then(r => r.json())
@@ -101,8 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
             span.innerHTML = `<img id='vitamin' src = "${num}.gif" >`
             // tdimage.appendChild(divImage)
             tableRow.appendChild(span)
-
-
           } else if (percentage >= 50 && percentage <= 150) {
             tableRow.children[3].children[0].style['background-color']='orange'
           } else {
@@ -113,6 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
       })
   }
 
+
+
+//DELETING THINGS IN NUTRITIONAL PROFILE
   consumedItems.addEventListener('click', () => {
     if (event.target.nodeName === 'BUTTON') {
       let id = event.target.parentElement.dataset.id;
@@ -151,5 +191,36 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       })
   }
-
 })
+
+
+
+
+  //SHOWING INFO ABOUT EACH NUTRIENT
+
+  function descriptionEvent(){
+  let clicknutrient = document.querySelectorAll('#vitamin')
+  clicknutrient.forEach(nutrient => nutrient.addEventListener('click', funk))
+  function funk(e){
+    prompt(e.target.dataset.description)
+    //add nutrition content to seeds file
+  }
+
+//SUGGESTIONS PROMPT
+    let percent = document.querySelectorAll('#percentage')
+    percent.forEach(nutrient => nutrient.addEventListener('click', junk))
+    function junk(e){
+      prompt(e)
+    }
+    //make suggestions for food w/ highest content based on what was clicked
+
+  }
+
+
+//CUSTOM FOOD PROMPT FORM
+let addcustom = document.querySelector('#lookingfor')
+addcustom.addEventListener('click', promptCustom)
+function promptCustom(e){
+  prompt("Please Fill the Forms")
+  //post the info to the back end and give option to save to table
+}

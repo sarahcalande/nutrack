@@ -27,7 +27,7 @@ h2 {
 body {
   font-family: monospace;
   margin: 0;
-  background-image: url('avobackground.jpg');
+  /* background-image: url('avobackground.jpg'); */
   color: darkgreen;
   display: grid;
   grid-template-columns: 25% 20% auto;
@@ -37,7 +37,6 @@ body {
                       }
 
 #mySearch {
-  background-image: url('/css/searchicon.png');
   background-color: white;
   background-position: 10px 10px;
   background-repeat: no-repeat;

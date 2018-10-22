@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 2018_10_01_181736) do
 
   create_table "nutrients", force: :cascade do |t|
     t.string "name"
+    t.string "description"
+    t.string "value"
+    t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
