@@ -4,142 +4,30 @@
     <meta charset="utf-8">
     <title>NuTrack</title>
     <link rel="stylesheet" type="text/css" href="index.css">
+
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+
   </head>
   <body>
     <h1 id='your-name'></h1>
-
-    <h2 id="todays-items-heading"></h2>
+<h2 id="todays-items-heading"></h2>
 
     <div id="nutritional-profile">
-      <ul id="consumed-items"></ul><br>
+      <ul id="consumed-items"></ul>
+      <canvas id="doughnut-chart" width="40" height="40"></canvas>
     </div>
-    <table id="nutrition-table" width="50%">
+    <table id="nutrition-table" width="100%">
       <tr class="header">
         <th style="width:30%;">Nutrient</th>
         <th style="width:20%;">Recommended DV</th>
         <th style="width:20%;">Today's Intake</th>
         <th style="width:20%;">Percentage</th>
       </tr>
-      <!-- <tr id='208'>
-        <td id='energy'>Energy</td>
-        <td id='cals'>2000 kCal</td>
-        <td id='intake'>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='204'>
-        <td id="vitamin">Fat</td>
-        <td id="grams">65 g</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='203'>
-        <td id="vitamin">Protein</td>
-        <td id="grams">50 g</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='205'>
-        <td id="vitamin">Carbs</td>
-        <td id="grams">300 g</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='291'>
-        <td id="vitamin">Fiber</td>
-        <td>25 g</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='307'>
-        <td id="vitamin">Sodium</td>
-        <td>2300 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='306'>
-        <td id="vitamin">Potassium</td>
-        <td>4700 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='301'>
-        <td id="vitamin">Calcium</td>
-        <td>1000 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='303'>
-        <td id="vitamin">Iron</td>
-        <td>18 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='309'>
-        <td id="vitamin">Zinc</td>
-        <td>15 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='304'>
-        <td id="vitamin">Magnesium</td>
-        <td>400 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='315'>
-        <td id="vitamin">Manganese</td>
-        <td>2.3 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='317'>
-        <td id="vitamin">Selenium</td>
-        <td>55 mcg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='417'>
-        <td id="vitamin">Folate</td>
-        <td>400 mcg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='318'>
-        <td id="vitamin">Vitamin A</td>
-        <td>5000 IU</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='418'>
-        <td id="vitamin">Vitamin B-12</td>
-        <td>2.4 mgc</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='401'>
-        <td id="vitamin">Vitamin C</td>
-        <td>80 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='324'>
-        <td id="vitamin">Vitamin D</td>
-        <td>600 IU</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='323'>
-        <td id="vitamin">Vitamin E</td>
-        <td>15 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr>
-      <tr id='430'>
-        <td id="vitamin">Vitamin K</td>
-        <td>100 mg</td>
-        <td>0</td>
-        <td><span style='background-color:#F88;display:block;width:0%'>0</span></td>
-      </tr> -->
     </table>
 
 
@@ -152,7 +40,8 @@
 
     <div id="all-ingredients">
                 <p id="lookingfor">Don't see what you're looking for? Click to add a food</p>
-      <table id="myTable">
+
+      <table class="ui inverted table" id="myTable">
         <tr class="header">
           <th style="width:70%;">Name</th>
           <th style="width:20%;">Measurement</th>
@@ -163,17 +52,61 @@
     </div>
 
 
+            <div class="ui modal" id="descriptionmodal">
+              <i class="close icon"></i>
+              <div id="firstheader">
+                headertext
+              </div>
+              <div class="image content">
+                <div id="image">
+                </div>
+                <div class="description">
+                </div>
+              </div>
+              <div class="actions">
+              </div>
+            </div>
+
+
+            <div class="ui modal" id="suggestion">
+              <i class="close icon"></i>
+              <div id="secondheader">
+                innertext
+              </div>
+              <div class="image content">
+                <div class="image">
+                </div>
+                <div id="suggestioninner">
+
+                </div>
+              </div>
+              <div class="actions">
+          <button>OK</button>
+              </div>
+            </div>
 
 
 
+        <div class="ui modal" id="promptmodal">
+          <i class="close icon"></i>
+          <div class="header">
+            Add A Food
+          </div>
+          <div class="image content">
+            <div class="image">
+                <form>
+              <input placeholder="Name" type = "text" name="name" >
+              <input placeholder="measure" type="text" name = "measure">
+            </div>
+          </div>
+          <div class="actions">
+      <button type="submit"> Submit </button>
+            </form>
+          </div>
+        </div>
 
 
-
-
-
-
-
-
+        <script src="../node_modules/chart.js/dist/Chart.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

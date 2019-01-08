@@ -1,34 +1,51 @@
 * {
   box-sizing: border-box;
-  max-height: 600px;
+  /* max-height: 600px; */
 }
 
 h1{
   font-family: monospace;
   font-weight: lighter;
   background-color: white;
-  color: darkgreen;
+  opacity: .97;
+  color:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
   border: 2px white;
   grid-area: headerleft;
 }
 
+.unhide-chart {
+  display: block;
+  width: 230px;
+  height: 230px;
+  background: white;
+  opacity: .97;
+    border-radius: 15px;
+}
+
+p{
+  text-align: center;
+}
 
 h2 {
   font-family: monospace;
   font-weight: lighter;
-  /* font-size: 28px; */
-  text-decoration: underline;
   background-color: white;
-  color: darkgreen;
+  opacity: .97;
+  color:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
+  border: 2px white;
   /* width: 240px; */
   grid-area: headermiddle;
+    margin-top: 0!important;
+text-align: center;
 }
 
 body {
   font-family: monospace;
   margin: 0;
-  /* background-image: url('avobackground.jpg'); */
-  color: darkgreen;
+  background-image: url('healthy-food.jpg');
+  background-repeat: no-repeat;
+   background-size: 100% 100%;
+  /* color:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%); */
   display: grid;
   grid-template-columns: 25% 20% auto;
   grid-template-rows: 60px auto;
@@ -38,6 +55,7 @@ body {
 
 #mySearch {
   background-color: white;
+    opacity: .97;
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
@@ -48,6 +66,13 @@ body {
   grid-area: headerright;
 }
 
+
+
+
+ul{
+  margin: 0;
+    border-radius: 15px;
+}
 
 #all-ingredients {
   grid-area: right;
@@ -60,8 +85,8 @@ table{
 }
 
 #myTable {
-  background-color: darkgreen;
-  color: darkgreen;
+  background-color:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
+  color:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
   max-height: 600rem;
   overflow: scroll;
   width: 100%;
@@ -79,34 +104,49 @@ table{
   overflow-y: scroll;
   grid-area: main;
   font-family: monospace;
-  color: darkgreen;
+  color:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
   border: 2px white;
   width: 240px;
+  /* background: white;
+  opacity: .97;
+  border-radius: 15px; */
 }
 
+
+p{
+  background: white;
+  opacity: .97;
+  border-radius: 15px;
+}
 
 #nutrition-table{
   grid-area: left;
   background: white;
+  opacity: .97;
+  border-radius: 15px;
 }
 
 th{
-  background-color: white;
-  color: darkgreen;
-  border: 2px darkgreen;
+  /* background-color: white; */
+  /* opacity: .9;
+  color:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
+  border:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
+  border-radius: 15px; */
 }
-
+/*
 td {
   background: white;
-}
+    opacity: .9;
+      border-radius: 15px;
+} */
 
 #myTable th, #myTable td {
-  background-color: white;
-  width: 400px
+  /* background-color: white; */
+    opacity: .97;
+  /* width: 400px
   text-align: left;
-  color: darkgreen;
-  font-family: monospace;
-  grid-area: right;
+  color:  linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%);
+  grid-area: right; */
 }
 
 #vitamin{
@@ -118,10 +158,10 @@ td {
 #myTable tr {
   overflow: scroll;
 }
-
+/*
 #myTable tr.header, #myTable tr:hover {
   background-color: #f1f1f1;
-}
+} */
 
 
 #all-ingredients {
