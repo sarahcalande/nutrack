@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //ADDING TO NUTRITIONAL PROFILE
+
   document.querySelector('#myTable').addEventListener('click', () => {
     if (event.target.nodeName === 'BUTTON') {
       let li = document.createElement('li')
@@ -121,6 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+var myChart;
 
   function addNutritionalProfile(id, quantity) {
     fetch(`${ingredientsURL}/${id}`)
@@ -164,9 +167,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     let protein = document.querySelector("#Protein1").innerText
                     let fat = document.getElementById('Total lipid (fat)1').innerText
                     let carbs = document.getElementById('Carbohydrate1').innerText
-                    let canvas = document.getElementById("doughnut-chart")
-                    canvas.className = "unhide-chart"
-                           new Chart(canvas, {
+                    canvas = document.getElementById("doughnut-chart")
+                    // canvas.parentElement.replaceChild('<canvas id="doughnut-chart" width="230" height="230" style="display: block; width: 230px; height: 230px;">', canvas)
+                    // var newcanvas = document.getElementById('doughnut-chart')
+                    // let nutprof = document.getElementById("nutrtional-profile")
+                    // nutprof.children[0]
+                    // console.log(canvas)
+                    canvas.className = "unhide-chart chartjs-render-monitor"
+
+                    if (myChart) {
+   myChart.destroy();
+ }
+
+                        myChart = new Chart(canvas, {
                           type: 'doughnut',
                           data: {
                             labels: ["Fat", "Carbohydrates", "Protein"],
@@ -178,6 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
                               }
                             ]
                           },
+                          DatasetController: {
+                              update: function(reset) {},
+                          },
                           options: {
                             title: {
                               display: true,
@@ -188,29 +204,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             })
 
-                                
+
+
+//myChart.config.data.datasets[0].data is the array of numbers
 
 
 
 
 
+
+                                    // canvas.data.datasets[0].data
                             ;
-
-
-
-
 
 
           /////////////////////////////////////////////////////////////////////////
 
-        })
-
-      })
-
-
-
-
+              })
+                })
   }
+
+
+
+
+
 
 
 
