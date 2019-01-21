@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       yourName = prompt("What's your name?");
     }
 
-    let title = `${yourName}'s Daily Nutrition`;
+    let title = `${yourName}s Daily Nutrition`;
     let date = new Date();
     let month = date.getMonth() + 1;
     let day = date.getDate();
@@ -133,40 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let currentValue = parseFloat(tableRow.children[2].innerText);
           let allowedValue = parseFloat(tableRow.children[1].innerText);
           let percentage = Math.round((currentValue * 100) / allowedValue)
-          tableRow.children[3].children[0].innerText = percentage
-
-////////////////////////////////////////////////////////////////////
-//DONUT CHART
-
-
-          let protein = document.querySelector("#Protein1").innerText
-          let fat = document.getElementById('Total lipid (fat)1').innerText
-          let carbs = document.getElementById('Carbohydrate1').innerText
-          let canvas = document.getElementById("doughnut-chart")
-          canvas.className = "unhide-chart"
-                new Chart(canvas, {
-                type: 'doughnut',
-                data: {
-                  labels: ["Fat", "Carbohydrates", "Protein"],
-                  datasets: [
-                    {
-                      label: "Macronutrients",
-                      backgroundColor: ["salmon", "lightblue","lightgreen"],
-                      data: [fat, carbs, protein]
-                    }
-                  ]
-                },
-                options: {
-                  title: {
-                    display: true,
-                    text: 'Macronutrients'
-                  }
-                }
-                  });
-
-
-/////////////////////////////////////////////////////////////////////////
-
+          tableRow.children[3].children[0].innerText = percentage;
           if (percentage >= 0 && percentage <= 100) {
             tableRow.children[3].children[0].style.width = `${percentage}%`;
           } else {
@@ -188,10 +155,60 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             tableRow.children[3].children[0].style['background']='linear-gradient(to bottom, rgba(254,187,187,1) 0%,rgba(254,144,144,1) 45%,rgba(255,92,92,1) 100%)';
             tableRow.children[3].children[0].style['border-radius']= '15px'
-
           }
+
+
+          ////////////////////////////////////////////////////////////////////
+          //DONUT CHART
+
+                    let protein = document.querySelector("#Protein1").innerText
+                    let fat = document.getElementById('Total lipid (fat)1').innerText
+                    let carbs = document.getElementById('Carbohydrate1').innerText
+                    let canvas = document.getElementById("doughnut-chart")
+                    canvas.className = "unhide-chart"
+                           new Chart(canvas, {
+                          type: 'doughnut',
+                          data: {
+                            labels: ["Fat", "Carbohydrates", "Protein"],
+                            datasets: [
+                              {
+                                label: "Macronutrients",
+                                backgroundColor: ["salmon", "lightblue","lightgreen"],
+                                data: [fat, carbs, protein]
+                              }
+                            ]
+                          },
+                          options: {
+                            title: {
+                              display: true,
+                              text: 'Macronutrients'
+                            }
+
+                          },
+
+                            })
+
+                                
+
+
+
+
+
+                            ;
+
+
+
+
+
+
+          /////////////////////////////////////////////////////////////////////////
+
         })
+
       })
+
+
+
 
   }
 
