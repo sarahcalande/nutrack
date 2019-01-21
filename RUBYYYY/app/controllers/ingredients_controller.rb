@@ -10,6 +10,13 @@ class IngredientsController < ApplicationController
     render json: @ingredient
   end
 
+  def create
+    @ingredient = Ingredient.new(ingredient_params)
+    if @ingredient.save
+      render json: @ingredient
+    end
+  end
+
   def update
     @ingredient.update(ingredient_params)
     if @ingredient.save

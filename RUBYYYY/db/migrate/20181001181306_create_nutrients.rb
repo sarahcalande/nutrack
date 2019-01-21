@@ -5,6 +5,7 @@ class CreateNutrients < ActiveRecord::Migration[5.2]
       t.string :description
       t.string :value
       t.string :unit
+      t.string :suggestion
       t.timestamps
     end
   end

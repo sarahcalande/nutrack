@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_10_01_181736) do
     t.string "description"
     t.string "value"
     t.string "unit"
+    t.string "suggestion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
