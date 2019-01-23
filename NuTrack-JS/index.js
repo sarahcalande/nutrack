@@ -242,6 +242,8 @@ var myChart;
     }
   })
 
+
+
   function removeNutritionalProfile(id, quantity) {
     fetch(`${ingredientsURL}/${id}`)
       .then(r => r.json())
@@ -267,9 +269,63 @@ var myChart;
           } else {
             tableRow.children[3].children[0].style['background-color']='red'
           }
-        })
+          let protein = document.querySelector("#Protein1").innerText
+          let fat = document.getElementById('Total lipid (fat)1').innerText
+          let carbs = document.getElementById('Carbohydrate1').innerText
+
+          canvas = document.getElementById("doughnut-chart")
+          // canvas.parentElement.replaceChild('<canvas id="doughnut-chart" width="230" height="230" style="display: block; width: 230px; height: 230px;">', canvas)
+          // var newcanvas = document.getElementById('doughnut-chart')
+          // let nutprof = document.getElementById("nutrtional-profile")
+          // nutprof.children[0]
+          // console.log(canvas)
+
+
+          if (myChart) {
+            myChart.destroy();
+}
+
+              myChart = new Chart(canvas, {
+                type: 'doughnut',
+                data: {
+                  labels: ["Fat", "Carbohydrates", "Protein"],
+                  datasets: [
+                    {
+                      label: "Macronutrients",
+                      backgroundColor: ["salmon", "lightblue","lightgreen"],
+                      data: [fat, carbs, protein]
+                    }
+                  ]
+                },
+                DatasetController: {
+                    update: function(reset) {},
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Macronutrients'
+                  }
+
+                },
+
+              })
+              if (fat == 0 && carbs == 0 && protein == 0){
+                canvas.style.display = 'none'
+              }
+                })
+
       })
+
   }
+
+
+
+
+
+
+
+
+
 })
 
 
