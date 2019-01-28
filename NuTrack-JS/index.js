@@ -389,7 +389,149 @@ function submitfunction(e){
     let data =
     {
       name:   e.target.name.value,
-      measure: e.target.measure.value
+      measure: e.target.measure.value,
+      nutrients: [
+          {
+              "nutrient_id": "291",
+              "nutrient": "Fiber, total dietary",
+              "unit": "g",
+              "value": e.target.nutrients[0].value,
+              "gm": 0.0
+          },
+          {
+              "nutrient_id": "430",
+              "nutrient": "Vitamin K (phylloquinone)",
+              "unit": "\u00b5g",
+              "value": e.target.nutrients[1].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "301",
+              "nutrient": "Calcium, Ca",
+              "unit": "mg",
+              "value": e.target.nutrients[2].value,
+              "gm": 3.0
+          },
+          {
+              "nutrient_id": "323",
+              "nutrient": "Vitamin E (alpha-tocopherol)",
+              "unit": "mg",
+              "value": e.target.nutrients[3].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "203",
+              "nutrient": "Protein",
+              "unit": "g",
+              "value": e.target.nutrients[4].value,
+              "gm": 0.25
+          },
+          {
+              "nutrient_id": "401",
+              "nutrient": "Vitamin C, total ascorbic acid",
+              "unit": "mg",
+              "value": e.target.nutrients[5].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "324",
+              "nutrient": "Vitamin D",
+              "unit": "IU",
+              "value": e.target.nutrients[6].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "204",
+              "nutrient": "Total lipid (fat)",
+              "unit": "g",
+              "value": e.target.nutrients[7].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "303",
+              "nutrient": "Iron, Fe",
+              "unit": "mg",
+              "value": e.target.nutrients[8].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "205",
+              "nutrient": "Carbohydrate, by difference",
+              "unit": "g",
+              "value": e.target.nutrients[9].value,
+              "gm": 1.3
+          },
+          {
+              "nutrient_id": "304",
+              "nutrient": "Magnesium, Mg",
+              "unit": "mg",
+              "value": e.target.nutrients[10].value,
+              "gm": 7.0
+          },
+          {
+              "nutrient_id": "315",
+              "nutrient": "Manganese, Mn",
+              "unit": "mg",
+              "value": e.target.nutrients[11].value,
+              "gm": 0.006
+          },
+          {
+              "nutrient_id": "306",
+              "nutrient": "Potassium, K",
+              "unit": "mg",
+              "value": e.target.nutrients[12].value,
+              "gm": 26.0
+          },
+          {
+              "nutrient_id": "317",
+              "nutrient": "Selenium, Se",
+              "unit": "\u00b5g",
+              "value": e.target.nutrients[13].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "318",
+              "nutrient": "Vitamin A, IU",
+              "unit": "IU",
+              "value": e.target.nutrients[14].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "417",
+              "nutrient": "Folate, total",
+              "unit": "\u00b5g",
+              "value": e.target.nutrients[15].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "307",
+              "nutrient": "Sodium, Na",
+              "unit": "mg",
+              "value": e.target.nutrients[16].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "208",
+              "nutrient": "Energy",
+              "unit": "kcal",
+              "value": e.target.nutrients[17].value,
+              "gm": 29.0
+          },
+          {
+              "nutrient_id": "418",
+              "nutrient": "Vitamin B-12",
+              "unit": "\u00b5g",
+              "value": e.target.nutrients[18].value,
+              "gm": "--"
+          },
+          {
+              "nutrient_id": "309",
+              "nutrient": "Zinc, Zn",
+              "unit": "mg",
+              "value": e.target.nutrients[19].value,
+              "gm": "--"
+          }
+      ]
     }
 
 
